@@ -1,0 +1,158 @@
+/* ========== Product Card Container ========== */
+.product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(83, 52, 25, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(217, 119, 6, 0.34);
+    box-shadow: 0 20px 42px rgba(83, 52, 25, 0.16);
+}
+
+/* ========== Product Image ========== */
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+    background: var(--bg-soft);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+/* ========== Product Info Container ========== */
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+}
+
+/* ========== Product Name ========== */
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    line-clamp: initial;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ========== Product Price ========== */
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+
+/* ========== View Details Button ========== */
+.view-details-button {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid var(--primary);
+    margin-top: auto;
+}
+
+.view-details-button:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(217, 119, 6, 0.22);
+}
+
+.view-details-button:active {
+    transform: translateY(0);
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+    .product-card {
+        border-radius: 8px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .product-info {
+        padding: 15px;
+    }
+
+    .product-name {
+        font-size: 1rem;
+    }
+
+    .product-price {
+        font-size: 1.2rem;
+    }
+
+    .view-details-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-image {
+        height: 180px;
+    }
+
+    .product-info {
+        padding: 12px;
+    }
+
+    .product-name {
+        font-size: 0.95rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    .view-details-button {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ========== Animation ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card {
+    animation: fadeInUp 0.5s ease-in;
+}

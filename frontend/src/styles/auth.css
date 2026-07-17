@@ -1,0 +1,102 @@
+.auth-container {
+    min-height: calc(100vh - 180px);
+    display: grid;
+    place-items: center;
+    padding: 42px 20px 72px;
+    background:
+        radial-gradient(circle at top right, rgba(37, 111, 90, 0.12), transparent 28rem),
+        radial-gradient(circle at bottom left, rgba(217, 119, 6, 0.12), transparent 30rem);
+}
+
+.auth-form {
+    width: min(100%, 440px);
+    padding: 38px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(255, 247, 235, 0.9), rgba(255, 255, 255, 0.96)),
+        var(--surface);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.auth-form h2 {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    color: var(--secondary-dark);
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    line-height: 1.05;
+}
+
+.auth-form h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 72px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.auth-form input {
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 16px;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fffdf8;
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.auth-form input::placeholder {
+    color: rgba(118, 103, 86, 0.75);
+}
+
+.auth-form input:focus {
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.14);
+}
+
+.auth-form .btn {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 4px;
+}
+
+.auth-form p {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 0.98rem;
+    text-align: center;
+}
+
+.auth-form p a {
+    margin-left: 6px;
+    color: var(--primary-dark);
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+}
+
+.auth-form p a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+@media (max-width: 520px) {
+    .auth-container {
+        min-height: calc(100vh - 150px);
+        padding: 28px 16px 52px;
+        place-items: start center;
+    }
+
+    .auth-form {
+        padding: 28px 22px;
+    }
+}

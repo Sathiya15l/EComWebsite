@@ -1,0 +1,114 @@
+/* ========== Footer Container ========== */
+footer.footer {
+    background: linear-gradient(135deg, var(--secondary-dark), rgba(23, 72, 59, 0.95));
+    color: var(--surface);
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 3px solid var(--primary);
+    margin-top: 72px;
+}
+
+/* ========== Footer Content ========== */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    color: rgba(255, 250, 242, 0.85);
+    font-size: 0.95rem;
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+
+/* ========== Footer Links ========== */
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links a {
+    color: rgba(255, 231, 189, 0.95);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+}
+
+.footer-links a:hover {
+    color: var(--surface);
+    text-decoration: none;
+    border-bottom-color: var(--primary);
+    text-shadow: 0 0 14px rgba(255, 231, 189, 0.22);
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+    footer.footer {
+        padding: 30px 15px;
+        margin-top: 40px;
+    }
+
+    .footer-content p {
+        font-size: 0.9rem;
+    }
+
+    .footer-links {
+        gap: 20px;
+    }
+
+    .footer-links a {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer.footer {
+        padding: 20px 10px;
+        margin-top: 30px;
+        border-top: 2px solid var(--primary);
+    }
+
+    .footer-content p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+}
+
+/* ========== Animation ========== */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer.footer {
+    animation: slideUp 0.6s ease-in-out;
+}
+

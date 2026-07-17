@@ -1,0 +1,25 @@
+{
+  "name": "myshop-full-stack",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "ecommerce",
+    "Microservice"
+  ],
+  "license": "ISC",
+  "author": "Sathiya",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev" : "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "build": "cd frontend && npm install && npm run build",
+    "start:backend": "npm --prefix backend run dev",
+    "start:frontend": "npm --prefix frontend run dev",
+    "seed": "npm --prefix backend run seed", 
+    "start": "cd backend && npm start"
+  },
+  "dependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
