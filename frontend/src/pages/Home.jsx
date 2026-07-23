@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
+import { api } from '../utils/api';
 
 const Home = ()=>{
     const [products, setProducts] = useState([]);
@@ -8,7 +9,7 @@ const Home = ()=>{
     useEffect(()=>{
         const fetchProducts = async ()=>{
             try{
-                const res = await fetch('/api/products');
+                const res = await fetch(api('/api/products'));
                 console.log("Status",res.status);
                 const data =await res.json();
                 console.log("Data",data);

@@ -5,6 +5,7 @@ import { setCart } from '../redux/cartSlice';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useEffect } from "react";
+import { api } from '../utils/api';
 
 import '../styles/cart.css';
 
@@ -21,7 +22,7 @@ const Cart = () => {
 
   const loadCart = async () =>{
 
-        const res = await fetch("/api/cart", {
+        const res = await fetch(api("/api/cart"), {
             headers: {
                 Authorization: `Bearer ${user.token}`
             }
@@ -44,7 +45,7 @@ const Cart = () => {
 
   const handleRemove = async (id) => {
 
-        await fetch(`/api/cart/${id}`, {
+        await fetch(api(`/api/cart/${id}`), {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${user.token}`
@@ -57,7 +58,7 @@ const Cart = () => {
 
         if (qty <= 0) return;
 
-        await fetch(`/api/cart/${item._id}`, {
+        await fetch(api(`/api/cart/${item._id}`), {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

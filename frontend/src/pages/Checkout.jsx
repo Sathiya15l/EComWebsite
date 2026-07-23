@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { clearCart } from '../redux/cartSlice';
+import { api } from '../utils/api';
 
 const Checkout = () => {
   const { user } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Checkout = () => {
 
   const handlePayment = async () => {
     try {
-      const orderRes = await fetch('/api/payments/order', {
+      const orderRes = await fetch(api('/api/payments/order'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: totalPrice })
@@ -43,13 +44,13 @@ const Checkout = () => {
         description: 'Test Transaction',
         order_id: orderData.id,
         handler: async function (response) {
-          const verifyRes = await fetch('/api/payments/verify', {
+          const verifyRes = await fetch(api('/api/payments/verify'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(response)
           });
           if (verifyRes.ok) {
-            const saveOrderRes = await fetch('/api/orders', {
+            const saveOrderRes = await fetch(api('/api/orders'), {
               method: 'POST',
               headers: { 
                 'Content-Type': 'application/json',
@@ -91,7 +92,7 @@ const Checkout = () => {
   };
 
   const bypassPayment = async () => {
-    const saveOrderRes = await fetch('/api/orders', {
+    const saveOrderRes = await fetch(api('/api/orders'), {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',

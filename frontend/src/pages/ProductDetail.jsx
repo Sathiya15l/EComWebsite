@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { setCart } from "../redux/cartSlice";
 import '../styles/productDetail.css';
+import { api } from "../utils/api";
 
 const ProductDetail = ()=>{
     const { id }=useParams();
@@ -17,7 +18,7 @@ const ProductDetail = ()=>{
     useEffect(()=>{
         const fetchProduct = async ()=>{
             try {
-                const res = await fetch(`/api/products/${id}`);
+                const res = await fetch(api(`/api/products/${id}`));
                 const data = await res.json();
                 setProduct(data);
             } catch (error) {
@@ -35,7 +36,7 @@ const ProductDetail = ()=>{
 
         try {
             // Add item to backend cart
-            await fetch("/api/cart", {
+            await fetch(api("/api/cart"), {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -48,7 +49,7 @@ const ProductDetail = ()=>{
             });
 
             // Fetch updated cart
-            const res = await fetch("/api/cart", {
+            const res = await fetch(api("/api/cart"), {
                 headers: {
                     Authorization: `Bearer ${user.token}`
                 }

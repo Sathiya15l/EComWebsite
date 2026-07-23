@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { clearCart,setCart } from "../redux/cartSlice";
+import { api } from "../utils/api";
 
 const AuthContext = createContext();
 
@@ -14,7 +15,7 @@ const AuthProvider = ({children})=>{
             if (!user) return;
 
             try {
-                const res = await fetch("/api/cart", {
+                const res = await fetch(api("/api/cart"), {
                     headers: {
                         Authorization: `Bearer ${user.token}`
                     }
@@ -49,7 +50,7 @@ const AuthProvider = ({children})=>{
         localStorage.setItem("userInfo", JSON.stringify(userData));
 
         try {
-            const res = await fetch("/api/cart", {
+            const res = await fetch(api("/api/cart"), {
                 headers: {
                     Authorization: `Bearer ${userData.token}`
                 }
