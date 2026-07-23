@@ -34,16 +34,11 @@ app.use('/api/analytics',require('./routes/analyticsRoutes'));
 app.use("/api/cart", require("./routes/cartRoutes"));
 
 //Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../frontend/dist')));
-    app.use('*', (req,res)=>{
-        res.sendFile(path.join(__dirname, '../frontend/dist/index.html')); 
-    });
-}else {
+//
     app.get('/', (req,res)=>{
         res.send("MyShop Backend is running in development mode");
     });
-}
+//}
 
 console.log("PORT from env:", process.env.PORT);
 const PORT = process.env.PORT || 5000;
